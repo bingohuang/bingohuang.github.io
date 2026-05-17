@@ -5,6 +5,8 @@
 .agents
 .claude
 
+.DS_Store
+
 # media
 #*.gif
 #*.mp4
