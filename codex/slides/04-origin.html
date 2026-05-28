@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Codex · 从先发到浪费</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0D0D0D; color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .s04-stage { position: relative; width: 1920px; height: 1080px; }
+  .s04-masthead {
+    position: absolute; top: 50px; left: 120px; right: 120px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s04-masthead-left { display: flex; align-items: center; gap: 16px; }
+  .s04-logo {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 22px; font-weight: 700; color: #6C5CE7;
+  }
+  .s04-masthead-left span {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  }
+  .s04-masthead-right { font-size: 13px; letter-spacing: 0.18em; color: #666; }
+
+  .s04-header { position: absolute; top: 140px; left: 120px; right: 120px; }
+  .s04-kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #6C5CE7; font-weight: 600; margin-bottom: 18px;
+  }
+  .s04-kicker::before { content: ""; width: 36px; height: 2px; background: #6C5CE7; }
+  .s04-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 56px; line-height: 1.15; font-weight: 600;
+    letter-spacing: -0.01em; color: #F5F5F5;
+  }
+  .s04-title .accent { color: #6C5CE7; font-style: italic; }
+
+  .s04-cols {
+    position: absolute; top: 310px; left: 120px; right: 120px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  }
+
+  .s04-card {
+    padding: 34px 38px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .s04-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px;
+  }
+  .s04-card.purple::before { background: #6C5CE7; }
+  .s04-card.cyan::before { background: #00D2FF; }
+  .s04-card-label {
+    font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 16px;
+  }
+  .s04-card.purple .s04-card-label { color: #6C5CE7; }
+  .s04-card.cyan .s04-card-label { color: #00D2FF; }
+  .s04-card-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 28px; font-weight: 600; color: #F5F5F5;
+    line-height: 1.3; margin-bottom: 16px;
+  }
+  .s04-card-body {
+    font-size: 17px; line-height: 1.7; color: #888;
+  }
+  .s04-card-body strong { color: #CCC; font-weight: 600; }
+
+  .s04-divider {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 60px;
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 20px; color: #6C5CE7;
+  }
+
+  .s04-footer {
+    position: absolute; left: 120px; right: 120px; bottom: 50px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; letter-spacing: 0.14em; color: #666; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="s04-stage">
+  <div class="s04-masthead">
+    <div class="s04-masthead-left">
+      <div class="s04-logo">Codex</div>
+      <span>AI 编程智能体 · 深度解读</span>
+    </div>
+    <div class="s04-masthead-right">04 · ORIGIN</div>
+  </div>
+
+  <div class="s04-header">
+    <div class="s04-kicker">CHAPTER 02 · 先发优势的浪费</div>
+    <h1 class="s04-title">最早出发，<span class="accent">最晚到达</span></h1>
+  </div>
+
+  <div class="s04-cols">
+    <div>
+      <div class="s04-card purple" style="margin-bottom: 30px;">
+        <div class="s04-card-label">2021 · 先发优势</div>
+        <div class="s04-card-title">OpenAI 最早做出<br>AI 编程工具</div>
+        <div class="s04-card-body">
+          2021年发布初代 Codex 模型。布罗克曼当时说，<strong>这将是打造超级助理的关键</strong>。GitHub Copilot 背后用的就是这个技术。OpenAI 在这个赛道上是有先发优势的。
+        </div>
+      </div>
+
+      <div class="s04-card cyan">
+        <div class="s04-card-label">当时的问题</div>
+        <div class="s04-card-title">产品非常不成熟</div>
+        <div class="s04-card-body">
+          内部试用发现，引入的 <strong>BUG 和问题比人类新手工程师还多</strong>。技术方向是对的，但产品体验远远没有达到可用标准。
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s04-card purple">
+        <div class="s04-card-label">2022 · 转折点</div>
+        <div class="s04-card-title">ChatGPT 横空出世<br>Codex 被搁置</div>
+        <div class="s04-card-body">
+          ChatGPT 两个月破亿用户，OpenAI 全公司资源倾斜过去。<strong>Codex 的先发优势就这样被白白浪费了</strong>——不是因为技术不行，而是因为公司的注意力被更耀眼的明星产品吸走了。
+        </div>
+      </div>
+
+      <div class="s04-card cyan" style="margin-top:30px;">
+        <div class="s04-card-label">教训</div>
+        <div class="s04-card-title">先发不等于先到</div>
+        <div class="s04-card-body">
+          看到方向、做出原型、甚至发布产品，都只是第一步。<strong>持续投入、打磨体验、等待时机</strong>——这三件事，比"第一个做出来"重要得多。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s04-divider">→</div>
+
+  <div class="s04-footer">
+    <div>CHAPTER 02 · ORIGIN</div>
+    <div>04 / 13</div>
+  </div>
+</div>
+</body>
+</html>

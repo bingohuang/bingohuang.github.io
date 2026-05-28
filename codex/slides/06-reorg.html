@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Codex · 组织架构调整</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0D0D0D; color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .s06-stage { position: relative; width: 1920px; height: 1080px; }
+  .s06-masthead {
+    position: absolute; top: 50px; left: 120px; right: 120px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s06-masthead-left { display: flex; align-items: center; gap: 16px; }
+  .s06-logo {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 22px; font-weight: 700; color: #6C5CE7;
+  }
+  .s06-masthead-left span {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  }
+  .s06-masthead-right { font-size: 13px; letter-spacing: 0.18em; color: #666; }
+
+  .s06-header { position: absolute; top: 140px; left: 120px; right: 120px; }
+  .s06-kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #6C5CE7; font-weight: 600; margin-bottom: 18px;
+  }
+  .s06-kicker::before { content: ""; width: 36px; height: 2px; background: #6C5CE7; }
+  .s06-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 52px; line-height: 1.15; font-weight: 600;
+    letter-spacing: -0.01em; color: #F5F5F5;
+  }
+  .s06-title .accent { color: #6C5CE7; font-style: italic; }
+
+  .s06-content {
+    position: absolute; top: 310px; left: 120px; right: 120px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+  }
+
+  .s06-org-box {
+    padding: 36px 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .s06-org-box::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px; background: #6C5CE7;
+  }
+  .s06-org-label {
+    font-size: 12px; letter-spacing: 0.2em; color: #6C5CE7;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 16px;
+  }
+  .s06-org-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 26px; font-weight: 600; color: #F5F5F5;
+    line-height: 1.3; margin-bottom: 16px;
+  }
+  .s06-org-body {
+    font-size: 16px; line-height: 1.7; color: #888;
+  }
+  .s06-org-body strong { color: #CCC; font-weight: 600; }
+
+  .s06-person-card {
+    margin-top: 30px;
+    padding: 30px 34px;
+    border: 1px solid rgba(0,210,255,0.3);
+    background: rgba(0,210,255,0.05);
+    position: relative;
+  }
+  .s06-person-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px; background: #00D2FF;
+  }
+  .s06-person-label {
+    font-size: 12px; letter-spacing: 0.2em; color: #00D2FF;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 14px;
+  }
+  .s06-person-name {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 32px; font-weight: 600; color: #F5F5F5;
+    margin-bottom: 8px;
+  }
+  .s06-person-name .sub {
+    display: block; font-size: 16px; color: #888;
+    font-weight: 400; margin-top: 4px;
+  }
+  .s06-person-desc {
+    font-size: 16px; line-height: 1.7; color: #888;
+  }
+  .s06-person-desc strong { color: #CCC; font-weight: 600; }
+
+  .s06-footer {
+    position: absolute; left: 120px; right: 120px; bottom: 50px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; letter-spacing: 0.14em; color: #666; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="s06-stage">
+  <div class="s06-masthead">
+    <div class="s06-masthead-left">
+      <div class="s06-logo">Codex</div>
+      <span>AI 编程智能体 · 深度解读</span>
+    </div>
+    <div class="s06-masthead-right">06 · REORG</div>
+  </div>
+
+  <div class="s06-header">
+    <div class="s06-kicker">CHAPTER 02 · 战略升级</div>
+    <h1 class="s06-title">Codex 上升为<span class="accent">战略级产品</span></h1>
+  </div>
+
+  <div class="s06-content">
+    <div>
+      <div class="s06-org-box">
+        <div class="s06-org-label">上周 · OpenAI 大规模组织架构调整</div>
+        <div class="s06-org-title">ChatGPT + Codex + 开发者 API<br>合并为核心团队</div>
+        <div class="s06-org-body">
+          <strong>联合创始人布罗克曼</strong>亲自接管产品战略。将 ChatGPT、Codex 和开发者 API <strong>合并成一个核心团队</strong>。布罗克曼在内部备忘录里说：我们正在整合产品力量，以最大的专注度走向智能体的未来。
+        </div>
+      </div>
+
+      <div class="s06-org-box" style="margin-top:24px;">
+        <div class="s06-org-label">秘密项目 · "超级应用"</div>
+        <div class="s06-org-title">ChatGPT + Codex + 内置浏览器<br>三合一桌面端</div>
+        <div class="s06-org-body">
+          据报道，蒂博还在秘密主导一个内部代号<strong>"超级应用"</strong>的项目，要把三样东西合为一体，做成一个能<strong>自主替你执行复杂任务</strong>的统一桌面端应用。如果做成了，现在的 Codex 可能只是一个起点。
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s06-person-card">
+        <div class="s06-person-label">核心人物 · 全村的希望</div>
+        <div class="s06-person-name">蒂博·索蒂奥<span class="sub">Thibault Sottiaux · 比利时人</span></div>
+        <div class="s06-person-desc">
+          2024年来到 OpenAI，成为 <strong>Codex 工程团队负责人</strong>。如今已进入 OpenAI 最核心的产品权力层，领导者就是把 Codex 做起来的那个人。外界管他叫<strong>"全村的希望"</strong>——这话并不夸张。
+        </div>
+      </div>
+
+      <div class="s06-org-box" style="margin-top:24px;">
+        <div class="s06-org-label">人事变动</div>
+        <div class="s06-org-title">原来主导 ChatGPT 的负责人<br>被调去负责企业业务</div>
+        <div class="s06-org-body">
+          这个信号非常明确：<strong>Codex 的优先级已经超过了 ChatGPT</strong>。在 OpenAI 的战略版图上，Codex 代表的"智能体"方向，正在成为公司最核心的增长引擎。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s06-footer">
+    <div>CHAPTER 02 · REORG</div>
+    <div>06 / 13</div>
+  </div>
+</div>
+</body>
+</html>

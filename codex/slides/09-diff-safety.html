@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Codex · 安全可控</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0D0D0D; color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .s09-stage { position: relative; width: 1920px; height: 1080px; }
+  .s09-masthead {
+    position: absolute; top: 50px; left: 120px; right: 120px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s09-masthead-left { display: flex; align-items: center; gap: 16px; }
+  .s09-logo {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 22px; font-weight: 700; color: #6C5CE7;
+  }
+  .s09-masthead-left span {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  }
+  .s09-masthead-right { font-size: 13px; letter-spacing: 0.18em; color: #666; }
+
+  .s09-header { position: absolute; top: 140px; left: 120px; right: 120px; }
+  .s09-kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #6C5CE7; font-weight: 600; margin-bottom: 18px;
+  }
+  .s09-kicker::before { content: ""; width: 36px; height: 2px; background: #6C5CE7; }
+  .s09-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 56px; line-height: 1.15; font-weight: 600;
+    letter-spacing: -0.01em; color: #F5F5F5;
+  }
+  .s09-title .accent { color: #6C5CE7; font-style: italic; }
+
+  .s09-content {
+    position: absolute; top: 310px; left: 120px; right: 120px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  }
+
+  .s09-illustration {
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .s09-box {
+    padding: 36px 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .s09-box.red::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px; background: #FF5252;
+  }
+  .s09-box.green::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px; background: #00E676;
+  }
+  .s09-box-label {
+    font-size: 14px; letter-spacing: 0.18em; color: #888;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .s09-box-icon {
+    font-size: 64px; margin-bottom: 12px;
+  }
+  .s09-box-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 32px; font-weight: 600; color: #F5F5F5;
+    line-height: 1.2; margin-bottom: 12px;
+  }
+  .s09-box-desc {
+    font-size: 16px; line-height: 1.6; color: #888;
+  }
+
+  .s09-sandbox-detail {
+    padding: 36px 40px;
+    border: 1px solid rgba(0,230,118,0.3);
+    background: rgba(0,230,118,0.05);
+    position: relative;
+  }
+  .s09-sandbox-detail::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px; background: #00E676;
+  }
+  .s09-sandbox-label {
+    font-size: 12px; letter-spacing: 0.2em; color: #00E676;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 14px;
+  }
+  .s09-sandbox-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 28px; font-weight: 600; color: #F5F5F5;
+    line-height: 1.3; margin-bottom: 18px;
+  }
+  .s09-sandbox-steps {
+    list-style: none; padding: 0;
+  }
+  .s09-sandbox-steps li {
+    padding: 10px 0; font-size: 17px; color: #CCC;
+    border-bottom: 1px dashed rgba(255,255,255,0.06);
+    line-height: 1.5;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .s09-sandbox-steps li .step-num {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 16px; color: #00E676; font-weight: 600;
+    min-width: 24px;
+  }
+
+  .s09-footer {
+    position: absolute; left: 120px; right: 120px; bottom: 50px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; letter-spacing: 0.14em; color: #666; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="s09-stage">
+  <div class="s09-masthead">
+    <div class="s09-masthead-left">
+      <div class="s09-logo">Codex</div>
+      <span>AI 编程智能体 · 深度解读</span>
+    </div>
+    <div class="s09-masthead-right">09 · SAFETY</div>
+  </div>
+
+  <div class="s09-header">
+    <div class="s09-kicker">DIFFERENCE 02 · 安全可控</div>
+    <h1 class="s09-title">龙虾给一台电脑，<br>Codex 给<span class="accent">一个文件夹</span></h1>
+  </div>
+
+  <div class="s09-content">
+    <div class="s09-illustration">
+      <div class="s09-box red">
+        <div class="s09-box-label">龙虾的安全模型</div>
+        <div class="s09-box-icon">🖥️</div>
+        <div class="s09-box-title">整台电脑交给它</div>
+        <div class="s09-box-desc">
+          把一台电脑交给龙虾，它基本上就可以随便用，没有办法真正限制它。你不知道它会碰哪些文件、执行哪些操作。这就是为什么建议用专用机器。
+        </div>
+      </div>
+      <div class="s09-box green">
+        <div class="s09-box-label">Codex 的安全模型</div>
+        <div class="s09-box-icon">📁</div>
+        <div class="s09-box-title">给它一个文件夹</div>
+        <div class="s09-box-desc">
+          你给它一个文件夹，它只能在这个文件夹里干活，文件夹外的东西它不能随便碰，要碰就得先来问你。普通人也完全不用担心安全问题。
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s09-sandbox-detail">
+        <div class="s09-sandbox-label">沙箱 · Sandbox</div>
+        <div class="s09-sandbox-title">你可以自己设置规则</div>
+        <ul class="s09-sandbox-steps">
+          <li><span class="step-num">01</span> 每次动作都来请示你（最安全）</li>
+          <li><span class="step-num">02</span> 低风险操作它自己判断</li>
+          <li><span class="step-num">03</span> 高风险操作再来问你（推荐）</li>
+          <li><span class="step-num">04</span> 文件夹外的东西不能随便碰</li>
+          <li><span class="step-num">05</span> 要用就得先来问你</li>
+        </ul>
+      </div>
+
+      <div class="s09-sandbox-detail" style="margin-top:24px; border-color: rgba(108,92,231,0.3); background: rgba(108,92,231,0.05);">
+        <div class="s09-sandbox-label" style="color:#6C5CE7;">本质性区别</div>
+        <div class="s09-sandbox-title">为什么这很重要？</div>
+        <div class="s09-box-desc" style="font-size:17px; line-height:1.7; color:#CCC;">
+          这是<strong>本质性的不同</strong>。龙虾面向愿意承担风险的技术用户；Codex 让<strong>普通人</strong>也能安全地使用 AI 智能体。安全不是附加功能——是让 AI 智能体走向<strong>大众市场</strong>的前提。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s09-footer">
+    <div>DIFFERENCE 02 · SAFETY</div>
+    <div>09 / 13</div>
+  </div>
+</div>
+</body>
+</html>

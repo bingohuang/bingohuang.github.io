@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Codex · 上手门槛对比</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0D0D0D; color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .s08-stage { position: relative; width: 1920px; height: 1080px; }
+  .s08-masthead {
+    position: absolute; top: 50px; left: 120px; right: 120px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s08-masthead-left { display: flex; align-items: center; gap: 16px; }
+  .s08-logo {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 22px; font-weight: 700; color: #6C5CE7;
+  }
+  .s08-masthead-left span {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  }
+  .s08-masthead-right { font-size: 13px; letter-spacing: 0.18em; color: #666; }
+
+  .s08-header { position: absolute; top: 140px; left: 120px; right: 120px; }
+  .s08-kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #6C5CE7; font-weight: 600; margin-bottom: 18px;
+  }
+  .s08-kicker::before { content: ""; width: 36px; height: 2px; background: #6C5CE7; }
+  .s08-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 56px; line-height: 1.15; font-weight: 600;
+    letter-spacing: -0.01em; color: #F5F5F5;
+  }
+  .s08-title .accent { color: #6C5CE7; font-style: italic; }
+
+  .s08-cols {
+    position: absolute; top: 310px; left: 120px; right: 120px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  }
+
+  .s08-col-bad {
+    padding: 36px 40px;
+    border: 1px solid rgba(255,100,100,0.2);
+    background: rgba(255,50,50,0.04);
+    position: relative;
+  }
+  .s08-col-bad::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px; background: #FF5252;
+  }
+  .s08-col-bad .col-label {
+    font-size: 12px; letter-spacing: 0.2em; color: #FF5252;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 14px;
+  }
+  .s08-col-bad .col-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 28px; font-weight: 600; color: #F5F5F5;
+    margin-bottom: 20px;
+  }
+  .s08-col-bad ul {
+    list-style: none; padding: 0;
+  }
+  .s08-col-bad ul li {
+    padding: 12px 0; font-size: 17px; color: #999;
+    border-bottom: 1px dashed rgba(255,255,255,0.06);
+    line-height: 1.5;
+  }
+  .s08-col-bad ul li::before {
+    content: "✕ "; color: #FF5252; font-weight: 700;
+  }
+
+  .s08-col-good {
+    padding: 36px 40px;
+    border: 1px solid rgba(0,230,118,0.2);
+    background: rgba(0,230,118,0.04);
+    position: relative;
+  }
+  .s08-col-good::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px; background: #00E676;
+  }
+  .s08-col-good .col-label {
+    font-size: 12px; letter-spacing: 0.2em; color: #00E676;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 14px;
+  }
+  .s08-col-good .col-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 28px; font-weight: 600; color: #F5F5F5;
+    margin-bottom: 20px;
+  }
+  .s08-col-good ul {
+    list-style: none; padding: 0;
+  }
+  .s08-col-good ul li {
+    padding: 12px 0; font-size: 17px; color: #CCC;
+    border-bottom: 1px dashed rgba(255,255,255,0.06);
+    line-height: 1.5;
+  }
+  .s08-col-good ul li::before {
+    content: "✓ "; color: #00E676; font-weight: 700;
+  }
+
+  .s08-vs {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 48px; font-weight: 700; color: rgba(255,255,255,0.15);
+  }
+
+  .s08-footer {
+    position: absolute; left: 120px; right: 120px; bottom: 50px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; letter-spacing: 0.14em; color: #666; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="s08-stage">
+  <div class="s08-masthead">
+    <div class="s08-masthead-left">
+      <div class="s08-logo">Codex</div>
+      <span>AI 编程智能体 · 深度解读</span>
+    </div>
+    <div class="s08-masthead-right">08 · BARRIER</div>
+  </div>
+
+  <div class="s08-header">
+    <div class="s08-kicker">DIFFERENCE 01 · 上手门槛</div>
+    <h1 class="s08-title">不是高一点低一点，<br>而是<span class="accent">两个完全不同的世界</span></h1>
+  </div>
+
+  <div class="s08-cols">
+    <div class="s08-col-bad">
+      <div class="col-label">OpenClaw · 龙虾</div>
+      <div class="col-title">J 型学习曲线</div>
+      <ul>
+        <li>打开终端，在命令行里敲各种命令</li>
+        <li>安装一堆依赖的东西</li>
+        <li>自己配置 API 密钥</li>
+        <li>选择网关，各种重启</li>
+        <li>几乎每一个环节都可能卡住</li>
+        <li>强烈建议买一台 Mac Mini 专门跑</li>
+        <li>不要用自己的主力机！</li>
+        <li>前两周不断踩坑、反复配置</li>
+        <li>真正"回本"要到第三周之后</li>
+      </ul>
+    </div>
+
+    <div class="s08-col-good">
+      <div class="col-label">Codex</div>
+      <div class="col-title">装好就能用</div>
+      <ul>
+        <li>类似 ChatGPT 的聊天框界面</li>
+        <li>会用聊天助手就会用 Codex</li>
+        <li>不用打开终端</li>
+        <li>不用配置任何环境</li>
+        <li>用正常说话的方式告诉它想做什么</li>
+        <li>当天就能看到结果</li>
+        <li>不需要额外买硬件</li>
+        <li>第一次想试试 AI 智能体的不错选择</li>
+        <li>门槛的差距——两个世界</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="s08-vs">VS</div>
+
+  <div class="s08-footer">
+    <div>DIFFERENCE 01 · BARRIER</div>
+    <div>08 / 13</div>
+  </div>
+</div>
+</body>
+</html>

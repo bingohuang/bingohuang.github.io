@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Codex · 逆袭</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0D0D0D; color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .s05-stage { position: relative; width: 1920px; height: 1080px; }
+  .s05-masthead {
+    position: absolute; top: 50px; left: 120px; right: 120px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s05-masthead-left { display: flex; align-items: center; gap: 16px; }
+  .s05-logo {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 22px; font-weight: 700; color: #6C5CE7;
+  }
+  .s05-masthead-left span {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  }
+  .s05-masthead-right { font-size: 13px; letter-spacing: 0.18em; color: #666; }
+
+  .s05-header { position: absolute; top: 140px; left: 120px; right: 120px; }
+  .s05-kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #6C5CE7; font-weight: 600; margin-bottom: 18px;
+  }
+  .s05-kicker::before { content: ""; width: 36px; height: 2px; background: #6C5CE7; }
+  .s05-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 56px; line-height: 1.15; font-weight: 600;
+    letter-spacing: -0.01em; color: #F5F5F5;
+  }
+  .s05-title .accent { color: #6C5CE7; font-style: italic; }
+
+  .s05-grid {
+    position: absolute; top: 300px; left: 120px; right: 120px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px 50px;
+  }
+  .s05-card {
+    padding: 34px 38px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    display: flex; flex-direction: column;
+    min-height: 280px;
+  }
+  .s05-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 60px; height: 2px; background: #6C5CE7;
+  }
+  .s05-card-num {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 14px; color: #6C5CE7; font-weight: 600;
+    letter-spacing: 0.15em; margin-bottom: 14px;
+  }
+  .s05-card-headline {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 28px; line-height: 1.3; font-weight: 600;
+    color: #F5F5F5; letter-spacing: -0.005em;
+    margin-bottom: 16px;
+  }
+  .s05-card-headline .accent { color: #6C5CE7; }
+  .s05-card-body {
+    font-size: 16px; line-height: 1.7; color: #888;
+    flex: 1;
+  }
+  .s05-card-body strong { color: #CCC; font-weight: 600; }
+
+  .s05-hero-strip {
+    position: absolute; bottom: 100px; left: 120px; right: 120px;
+    display: flex; justify-content: center; gap: 80px;
+  }
+  .s05-hero-item {
+    text-align: center;
+  }
+  .s05-hero-value {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 52px; font-weight: 600; color: #6C5CE7;
+    line-height: 1; margin-bottom: 8px;
+  }
+  .s05-hero-value .unit { font-size: 22px; color: #F5F5F5; }
+  .s05-hero-label {
+    font-size: 12px; letter-spacing: 0.18em; color: #888;
+    text-transform: uppercase;
+  }
+
+  .s05-footer {
+    position: absolute; left: 120px; right: 120px; bottom: 50px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; letter-spacing: 0.14em; color: #666; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="s05-stage">
+  <div class="s05-masthead">
+    <div class="s05-masthead-left">
+      <div class="s05-logo">Codex</div>
+      <span>AI 编程智能体 · 深度解读</span>
+    </div>
+    <div class="s05-masthead-right">05 · COMEBACK</div>
+  </div>
+
+  <div class="s05-header">
+    <div class="s05-kicker">CHAPTER 02 · 逆袭之路</div>
+    <h1 class="s05-title">从需要几小时，到<span class="accent">只需要一句话</span></h1>
+  </div>
+
+  <div class="s05-grid">
+    <div class="s05-card">
+      <div class="s05-card-num">FACTOR 01</div>
+      <div class="s05-card-headline">产品化打磨，<br><span class="accent">不是技术炫技</span></div>
+      <div class="s05-card-body">
+        Codex 没有在模型能力上和 Claude Code 硬拼，而是把精力花在 <strong>产品体验</strong> 上。聊天框式交互、零配置安装、沙箱安全——让普通人也能用，而不是只服务极客。
+      </div>
+    </div>
+
+    <div class="s05-card">
+      <div class="s05-card-num">FACTOR 02</div>
+      <div class="s05-card-headline">一句话生成<br><span class="accent">完整可用版本</span></div>
+      <div class="s05-card-body">
+        过去用其他工具需要几个小时才能搭出来的应用框架，Codex 只凭<strong>一句话的描述</strong>，就瞬间生成了一个完全可用的版本。从需要几个小时，到只需要一句话——<strong>这就是质变</strong>。
+      </div>
+    </div>
+
+    <div class="s05-card">
+      <div class="s05-card-num">FACTOR 03</div>
+      <div class="s05-card-headline">时机终于到了</div>
+      <div class="s05-card-body">
+        2026年初，市场已经被 Claude Code 和龙虾教育过一轮，用户对 AI 编程的接受度大幅提高。Codex 带着<strong>更成熟的产品</strong>入场，正好踩在需求爆发的节点上。
+      </div>
+    </div>
+
+    <div class="s05-card">
+      <div class="s05-card-num">FACTOR 04</div>
+      <div class="s05-card-headline">龙虾创始人<br><span class="accent">的背书效应</span></div>
+      <div class="s05-card-body">
+        彼得·斯坦伯格入职 OpenAI，公开表示自己用 100 个 Codex 实例跑龙虾。这个背书让整个开发者社区重新审视 Codex——<strong>连龙虾作者都在用</strong>，那它一定做对了什么。
+      </div>
+    </div>
+  </div>
+
+  <div class="s05-hero-strip">
+    <div class="s05-hero-item">
+      <div class="s05-hero-value">100<span class="unit">万</span></div>
+      <div class="s05-hero-label">2月周活</div>
+    </div>
+    <div class="s05-hero-item">
+      <div class="s05-hero-value">200<span class="unit">万</span></div>
+      <div class="s05-hero-label">3月周活</div>
+    </div>
+    <div class="s05-hero-item">
+      <div class="s05-hero-value">400<span class="unit">万+</span></div>
+      <div class="s05-hero-label">4月周活</div>
+    </div>
+    <div class="s05-hero-item">
+      <div class="s05-hero-value">10<span class="unit">亿$</span></div>
+      <div class="s05-hero-label">年化收入</div>
+    </div>
+  </div>
+
+  <div class="s05-footer">
+    <div>CHAPTER 02 · COMEBACK</div>
+    <div>05 / 13</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Codex · 远程控制</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0D0D0D; color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .s10-stage { position: relative; width: 1920px; height: 1080px; }
+  .s10-masthead {
+    position: absolute; top: 50px; left: 120px; right: 120px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s10-masthead-left { display: flex; align-items: center; gap: 16px; }
+  .s10-logo {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 22px; font-weight: 700; color: #6C5CE7;
+  }
+  .s10-masthead-left span {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  }
+  .s10-masthead-right { font-size: 13px; letter-spacing: 0.18em; color: #666; }
+
+  .s10-header { position: absolute; top: 140px; left: 120px; right: 120px; }
+  .s10-kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #6C5CE7; font-weight: 600; margin-bottom: 18px;
+  }
+  .s10-kicker::before { content: ""; width: 36px; height: 2px; background: #6C5CE7; }
+  .s10-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 56px; line-height: 1.15; font-weight: 600;
+    letter-spacing: -0.01em; color: #F5F5F5;
+  }
+  .s10-title .accent { color: #6C5CE7; font-style: italic; }
+
+  .s10-content {
+    position: absolute; top: 300px; left: 120px; right: 120px;
+  }
+
+  .s10-setup {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+    margin-bottom: 40px;
+  }
+  .s10-machine {
+    padding: 34px 38px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .s10-machine::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 50px; height: 2px;
+  }
+  .s10-machine.macmini::before { background: #00D2FF; }
+  .s10-machine.laptop::before { background: #6C5CE7; }
+  .s10-machine-icon {
+    font-size: 48px; margin-bottom: 12px;
+  }
+  .s10-machine-name {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 26px; font-weight: 600; color: #F5F5F5;
+    margin-bottom: 10px;
+  }
+  .s10-machine-desc {
+    font-size: 16px; line-height: 1.6; color: #888;
+  }
+  .s10-machine-desc strong { color: #CCC; font-weight: 600; }
+
+  .s10-phone {
+    display: flex; align-items: center; gap: 30px;
+    padding: 34px 40px;
+    border: 1px solid rgba(108,92,231,0.3);
+    background: rgba(108,92,231,0.06);
+    position: relative;
+    text-align: center;
+    justify-content: center;
+  }
+  .s10-phone::before {
+    content: ""; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 2px; background: #6C5CE7;
+  }
+  .s10-phone-icon { font-size: 48px; }
+  .s10-phone-text {
+    font-size: 22px; color: #F5F5F5;
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-weight: 600;
+  }
+  .s10-phone-text .sub {
+    display: block; font-size: 15px; color: #888;
+    font-weight: 400; margin-top: 4px;
+  }
+
+  .s10-footer {
+    position: absolute; left: 120px; right: 120px; bottom: 50px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; letter-spacing: 0.14em; color: #666; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="s10-stage">
+  <div class="s10-masthead">
+    <div class="s10-masthead-left">
+      <div class="s10-logo">Codex</div>
+      <span>AI 编程智能体 · 深度解读</span>
+    </div>
+    <div class="s10-masthead-right">10 · REMOTE</div>
+  </div>
+
+  <div class="s10-header">
+    <div class="s10-kicker">DIFFERENCE 03 · 远程控制</div>
+    <h1 class="s10-title">手机统一管理<span class="accent">多台电脑</span></h1>
+  </div>
+
+  <div class="s10-content">
+    <div class="s10-setup">
+      <div class="s10-machine macmini">
+        <div class="s10-machine-icon">🖥️</div>
+        <div class="s10-machine-name">Mac Mini · 24小时不关机</div>
+        <div class="s10-machine-desc">
+          那些需要<strong>持续后台跑</strong>的任务放在这里：代码审查、自动化测试、长时间运行的构建任务。7×24 不间断工作。
+        </div>
+      </div>
+      <div class="s10-machine laptop">
+        <div class="s10-machine-icon">💻</div>
+        <div class="s10-machine-name">主力笔记本 · 实时调整</div>
+        <div class="s10-machine-desc">
+          需要<strong>频繁沟通、实时调整</strong>的任务放在这里：功能开发、问题调试、快速迭代。你在旁边看着它干活。
+        </div>
+      </div>
+    </div>
+
+    <div class="s10-phone">
+      <div class="s10-phone-icon">📱</div>
+      <div class="s10-phone-text">
+        手机端统一管理两台机器
+        <span class="sub">用手机随时查看进度、分配任务、切换机器</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="s10-footer">
+    <div>DIFFERENCE 03 · REMOTE</div>
+    <div>10 / 13</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Codex · 核心数据速览</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0D0D0D; color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .s01-stage { position: relative; width: 1920px; height: 1080px; }
+  .s01-masthead {
+    position: absolute; top: 50px; left: 120px; right: 120px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s01-masthead-left { display: flex; align-items: center; gap: 16px; }
+  .s01-logo {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 22px; font-weight: 700; color: #6C5CE7;
+  }
+  .s01-masthead-left span {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  }
+  .s01-masthead-right { font-size: 13px; letter-spacing: 0.18em; color: #666; }
+
+  .s01-header { position: absolute; top: 140px; left: 120px; right: 120px; }
+  .s01-kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #6C5CE7; font-weight: 600; margin-bottom: 18px;
+  }
+  .s01-kicker::before { content: ""; width: 36px; height: 2px; background: #6C5CE7; }
+  .s01-title {
+    font-family: "Source Serif 4", "Noto Serif SC", Georgia, serif;
+    font-size: 56px; line-height: 1.15; font-weight: 600;
+    letter-spacing: -0.01em; color: #F5F5F5;
+  }
+  .s01-title .accent { color: #6C5CE7; font-style: italic; }
+
+  .s01-heros {
+    position: absolute; top: 310px; left: 120px; right: 120px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 2px solid #F5F5F5;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .s01-hero {
+    padding: 28px 32px 28px 0;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .s01-hero:last-child { border-right: none; padding-right: 0; }
+  .s01-hero-label {
+    font-size: 12px; letter-spacing: 0.22em; color: #888;
+    text-transform: uppercase; margin-bottom: 12px; font-weight: 600;
+  }
+  .s01-hero-value {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 68px; font-weight: 600; color: #6C5CE7;
+    line-height: 1; letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 10px;
+  }
+  .s01-hero-value .unit { font-size: 28px; color: #F5F5F5; margin-left: 4px; }
+  .s01-hero-desc {
+    font-size: 14px; color: #888; line-height: 1.5;
+  }
+
+  .s01-cols {
+    position: absolute; top: 550px; left: 120px; right: 120px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  }
+  .s01-col-title {
+    font-size: 20px; letter-spacing: 0.22em; color: #888;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 20px;
+  }
+
+  .s01-milestone-list { list-style: none; }
+  .s01-milestone-list li {
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+    font-size: 20px; color: #F5F5F5; line-height: 1.5;
+  }
+  .s01-milestone-list li .date {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 16px; color: #6C5CE7; font-weight: 600;
+    min-width: 90px; letter-spacing: 0.05em;
+  }
+  .s01-milestone-list li .note {
+    font-size: 14px; color: #888; display: block; margin-top: 2px;
+  }
+
+  .s01-insight-box {
+    margin-top: 24px; padding: 24px 30px;
+    border-left: 3px solid #6C5CE7;
+    background: rgba(108,92,231,0.08);
+  }
+  .s01-insight-box p {
+    font-size: 18px; line-height: 1.7; color: #CCC;
+    font-style: italic;
+  }
+  .s01-insight-box p strong { color: #F5F5F5; font-style: normal; }
+
+  .s01-footer {
+    position: absolute; left: 120px; right: 120px; bottom: 50px;
+    display: flex; justify-content: space-between;
+    font-size: 13px; letter-spacing: 0.14em; color: #666; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="s01-stage">
+  <div class="s01-masthead">
+    <div class="s01-masthead-left">
+      <div class="s01-logo">Codex</div>
+      <span>AI 编程智能体 · 深度解读</span>
+    </div>
+    <div class="s01-masthead-right">01 · ONE-PAGER</div>
+  </div>
+
+  <div class="s01-header">
+    <div class="s01-kicker">CHAPTER 00 · 一页看懂</div>
+    <h1 class="s01-title">Codex 的<span class="accent">四个核心数字</span> · 与关键时间线</h1>
+  </div>
+
+  <div class="s01-heros">
+    <div class="s01-hero">
+      <div class="s01-hero-label">周活跃用户</div>
+      <div class="s01-hero-value">400<span class="unit">万+</span></div>
+      <div class="s01-hero-desc">2026年4月突破，<br>从年初增长5倍</div>
+    </div>
+    <div class="s01-hero">
+      <div class="s01-hero-label">年化收入</div>
+      <div class="s01-hero-value">10<span class="unit">亿$</span></div>
+      <div class="s01-hero-desc">2026年初突破，<br>AI编程市场异军突起</div>
+    </div>
+    <div class="s01-hero">
+      <div class="s01-hero-label">龙虾云端实例</div>
+      <div class="s01-hero-value">100<span class="unit">个</span></div>
+      <div class="s01-hero-desc">创始人同时在Codex上<br>运行100个AI实例</div>
+    </div>
+    <div class="s01-hero">
+      <div class="s01-hero-label">用户量追赶</div>
+      <div class="s01-hero-value">5<span class="unit">%→40%</span></div>
+      <div class="s01-hero-desc">仅一个月内从Claude Code<br>的5%追到40%</div>
+    </div>
+  </div>
+
+  <div class="s01-cols">
+    <div>
+      <div class="s01-col-title">关键里程碑</div>
+      <ul class="s01-milestone-list">
+        <li><span class="date">2021</span> 初代 Codex 模型发布</li>
+        <li><span class="date">2024</span> 蒂博·索蒂奥加入 OpenAI，成为 Codex 工程负责人</li>
+        <li><span class="date">2026.01</span> 用户量从 Claude Code 5% 追至 40%</li>
+        <li><span class="date">2026.02</span> 周活跃用户突破 100 万</li>
+        <li><span class="date">2026.03</span> 周活跃用户突破 200 万</li>
+        <li><span class="date">2026.04</span> 奥特曼发帖庆祝突破 300 万，随后突破 400 万</li>
+      </ul>
+    </div>
+    <div>
+      <div class="s01-col-title">核心洞察</div>
+      <div class="s01-insight-box">
+        <p>Codex 的崛起不是技术单点突破，而是<strong>产品体验的质变</strong>：聊天框式交互、零配置沙箱、手机远程控制——把 AI 编程从极客玩具变成了<strong>人人都能用的生产力工具</strong>。</p>
+      </div>
+      <div class="s01-insight-box" style="margin-top:20px; border-left-color: #00D2FF;">
+        <p>从被碾压到异军突起，Codex 用<strong>两年时间</strong>证明了：先发优势可以被浪费，但<strong>产品力</strong>终会说话。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="s01-footer">
+    <div>CHAPTER 00 · ONE-PAGER</div>
+    <div>01 / 13</div>
+  </div>
+</div>
+</body>
+</html>
